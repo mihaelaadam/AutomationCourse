@@ -8,13 +8,10 @@ function clickMe() {
 
 function readInputText() {
     var usernameText = document.getElementById("username").value;
-    var result = "";
         if (usernameText.length > 10)
         {
-            //alert("The max size of 10 has been exceeded");
-            result = "The max size of 10 has been exceeded";
-            //document.getElementById("username").style.color="red";
+            alert("The max size of 10 has been exceeded");
+            document.getElementById("username").style.color="red";
         }
-    //alert("The username is " + usernameText);
     document.getElementById("result").innerHTML = "the username is " + usernameText;
 }

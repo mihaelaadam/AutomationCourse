@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>AUTO 12 REGISTRATION PAGE</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <form>
@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="pass">Password</label>
+                    <label for="pass" class="labels">Password</label>
                 </td>
                 <td>
                     <input type="password" id="pass"/>
@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td>
-                    <label for="passrepeat">Repeat password</label>
+                    <label for="passrepeat" class="labels">Repeat password</label>
                 </td>
                 <td>
                     <input type="password" id="passrepeat"/>
@@ -35,11 +35,10 @@
             </tr>
             <tr>
                 <td>
-                    <label for="txtarea1">Adress</label>
+                    <label for="txtarea1" class="labels">Adress</label>
                 </td>
                 <td>
                     <textarea id="txtarea1"></textarea>
-                </td>
                 </td>
             </tr>
             <tr>
@@ -53,14 +52,13 @@
         </table>
         <input type="submit" id="submitbutton"/>
         <input type="reset" id="resetbutton"/>
-        <button type=button" value="button1" id="b1" onclick="clickMe();">My button</button>
+        <button type=button" value="button1" id="b1">My button</button>
     </form>
-    <img src="Capture.png" id="img1" class="images" width="100"/> <br/>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Black_Sea_map.png" id="img2" class="images" width="100"/> <br/>
-    <a href="https://ro.wikipedia.org/wiki/Pagina_principal%C4%83" id="link1">Click here for wikipedia</a> <br/>
+    <img src="Capture.png" id="img1" class="images" width="200" height="150"/> <br/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Black_Sea_map.png" id="img2" class="images" width="200" heigh="150"/> <br/>
+    <a href="https://ro.wikipedia.org/wiki/Pagina_principal%C4%83" id="link1">Click here for Wikipedia</a> <br/>
     <a href="https://github.com/mihaelaadam/AutomationCourse" target="_blank" id="link2">Click here for the github page</a> <br/>
     <div id="result">
-
     </div>
 </body>
 </html>

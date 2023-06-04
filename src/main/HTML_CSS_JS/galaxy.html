@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AUTO 12 REGISTRATION PAGE</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<br><br><br><br><br>
+<h1>Welcome to our website!</h1>
+<br>
+<h2>Embark on an intergalactic gastronomic journey where you will explore exotic flavors and innovative dishes, prepared with passion in our restaurants located in various corners of the galaxy.</h2>
+<h2>Whether you are a space adventurer in search of extraterrestrial cuisine or want to enjoy a romantic dinner under the starry sky, our galaxy restaurants will transport you to a world of sensational tastes and experiences.</h2>
+<h2>Our interstellar team is ready to provide you with first-class intergalactic service, ensuring that every visit is cosmic and memorable.</h2>
+<h3>Please fill out the form below to complete the reservation:</h3>
+<form>
+    <table>
+        <tr>
+            <td>
+                <label for="username" class="labels" id="l1">Username</label>
+            </td>
+            <td>
+                <input type="text" id="username" onchange="readInputText();"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="pass" class="labels">Password</label>
+            </td>
+            <td>
+                <input type="password" id="pass"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="passrepeat" class="labels">Repeat password</label>
+            </td>
+            <td>
+                <input type="password" id="passrepeat"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="txtarea1" class="labels">Adress</label>
+            </td>
+            <td>
+                <textarea id="txtarea1"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="labels" for="email">Email</label>
+            </td>
+            <td>
+                <input type="email" id="email"/>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <h3>Select your preferred means of transport</h3>
+    <select>
+        <option selected="selected">Provided by our restaurant</option>
+        <option>Own transport provided</option>
+    </select>
+    <br>
+    <h3>Type of payment:</h3>
+    <input type="radio" name="plata"> numerar
+    <input type="radio" name="plata"> card bancar
+    <br>
+    <input type="checkbox"> Se folosesc datele declarate in cont pentru emiterea facturii? <br> <br>
+    <input type="submit" id="submitbutton"/>
+    <input type="reset" id="resetbutton"/>
+</form>
+
+</body>
+</html>

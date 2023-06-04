@@ -1,11 +1,19 @@
-label {
-    color: red;
-}
+
 td, .labels, .images {
     text-align: center;
+    align: center;
     font-size: 20px;
-    color: green;
 }
-#l1 {
-    color: blue;
+
+body {
+    background-image: url("https://i.pinimg.com/736x/37/75/19/3775199e2e56d99d00557e0d5d2de1c9.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
+h1, h2 {
+    text-align: center;
+}
+fieldset {
+    border-radius: 25px;
+}
+

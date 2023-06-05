@@ -18,3 +18,11 @@
         margin-left: 100px;
         margin-right: 100px;
     }
+#subsol {
+    text-align: center;
+    width: 100%;
+}
+.sfarsitPagina {
+    height: 1px;
+    background-color: black;
+}

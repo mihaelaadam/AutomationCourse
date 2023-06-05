@@ -1,0 +1,20 @@
+    .imagini {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .imagine1 {
+      width: 300px;
+      height: 300px;
+      margin-left: 100px;
+    }
+    .imagine2 {
+        width: 350px;
+        height: 200px;
+        margin: 20px;
+    }
+    .imagine {
+        margin-left: 100px;
+        margin-right: 100px;
+    }

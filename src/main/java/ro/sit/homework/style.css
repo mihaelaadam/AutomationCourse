@@ -1,6 +1,6 @@
     .imagini {
       display: flex;
-      flex-wrap: wrap;
+      padding: 10%;
       justify-content: center;
     }
 
@@ -25,4 +25,34 @@
 .sfarsitPagina {
     height: 1px;
     background-color: black;
+}
+.titlu {
+    padding-left: 4%;
+    //font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 70px;
+    margin: 20px;
+}
+li {
+
+    font-size: 50px;
+}
+ul, ol {
+    padding-left:7%;
+}
+a {
+    font-style: underline;
+}
+.leg1 {
+    padding-left:5%;
+    font-size: 50px;
+    text-decoration: none;
+    color: darkblue;
+}
+.leg2 {
+    padding-left:8%;
+    font-size: 50px;
+    font-family: monospace;
+}
+.leg3 {
+    font-size: 50px;
 }

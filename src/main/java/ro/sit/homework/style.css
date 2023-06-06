@@ -25,6 +25,7 @@
 .sfarsitPagina {
     height: 1px;
     background-color: black;
+    border-style:groove;
 }
 .titlu {
     padding-left: 4%;
@@ -55,4 +56,16 @@ a {
 }
 .leg3 {
     font-size: 50px;
+}
+.footer {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+span {
+  position: absolute;
+  top: 50%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
 }

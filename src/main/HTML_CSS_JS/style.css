@@ -4,22 +4,42 @@ td, .labels {
     align: center;
     font-size: 20px;
 }
-
 body {
     background-image: url("https://i.pinimg.com/736x/37/75/19/3775199e2e56d99d00557e0d5d2de1c9.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
 }
-h1, h2 {
-    text-align: center;
-    font-family: cursive;
+h2 {
+    font-size: 24px;
 }
 fieldset {
     border-radius: 25px;
 }
-.poz {
-    padding: 55%;
+#img1 {
+    padding-left: 75%;
 }
-
+#img2 {
+    padding-left: 25%;
+}
+.titlu {
+    font-size: 50px;
+    text-align: center;
+}
+.prezentare {
+    text-align:center;
+    font-size: 24px;
+}
+#submitbutton {
+    font-family: cursive;
+}
+#resetbutton {
+    font-family: cursive;
+}
+#b1 {
+    font-family: cursive;
+}
+option {
+    font-size: 18px;
+}
 
 

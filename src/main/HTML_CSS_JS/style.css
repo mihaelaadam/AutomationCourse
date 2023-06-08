@@ -41,5 +41,38 @@ fieldset {
 option {
     font-size: 18px;
 }
-
-
+input {
+    margin-left: 1%;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 25px;
+    background-color: rgb(230, 231, 154);
+}
+button {
+    margin-left: 1%;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 25px;
+    background-color: rgb(230, 231, 154);
+}
+#txtarea1 {
+    margin-left: 1%;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 25px;
+    background-color: rgb(230, 231, 154);
+    width: 240px;
+}
+.labels {
+    background-color: rgb(230, 231, 154);
+}
+.label1 {
+    margin-left: 1%;
+    font-size: large;
+    font-weight: bold;
+    background-color: rgb(230, 231, 154);
+}
+div {
+    font-size: 50px;
+    text-align: center;
+}

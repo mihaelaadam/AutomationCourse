@@ -1,10 +1,13 @@
-function readInputText() {
+function readInputText(event) {
+    event.preventDefault();
+
     var usernameText = document.getElementById("username").value;
     var passText = document.getElementById("pass").value;
     var passrepeatText = document.getElementById("passrepeat").value;
     var emailText = document.getElementById("email").value;
     var verifEmail = "";
     var result = "";
+    var funny = "";
 
       var VerifAt = -1;
       var VerifDot = -1;
@@ -38,26 +41,37 @@ function readInputText() {
 }
 
 function funnyButton() {
+    var usernameText = document.getElementById("username").value;
+    var passText = document.getElementById("pass").value;
+    var passrepeatText = document.getElementById("passrepeat").value;
+    var emailText = document.getElementById("email").value;
+    var verifEmail = "";
+    var result = "";
     var funny = "";
-    if (usernameText && passText && emailText)
+
+      var VerifAt = -1;
+      var VerifDot = -1;
+      var i = 0;
+
+    if (usernameText == "" && passText == "" && emailText == "")
         {
-           funny = "You've just prepared a delicious feast of security!";
+            funny = "Cook up a combination of username, password, and email for a satisfying security meal!";
         }
-    else if (usernameText && passText)
+      else if (emailText == "")
         {
             funny = "Hey, " + usernameText + "! Your password is like a perfectly seasoned dish! Don't forget to pair it with the perfect email.";
         }
-      else if (usernameText && emailText)
+      else if (passText == "")
         {
             funny = "Hello, " + usernameText + "Your email is the secret sauce. Combine it with a password for a delightful feast of security.";
         }
-      else if (passText && emailText)
+      else if (usernameText == "")
         {
             funny = "Hey there, security chef! Add a little bit of username to enhance the taste.";
         }
       else
         {
-            funny = "Cook up a combination of username, password, and email for a satisfying security meal!";
+            funny = "You've just prepared a delicious feast of security!";
         }
       alert(funny);
 }

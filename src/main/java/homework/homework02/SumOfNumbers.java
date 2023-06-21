@@ -1,4 +1,4 @@
-package homework;
+package homework.homework02;
 public class SumOfNumbers {
     public static void main(String[] args) {
         int sum = 0;

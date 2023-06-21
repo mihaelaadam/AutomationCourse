@@ -1,4 +1,4 @@
-package homework;
+package homework.homework02;
 public class PrimeNumbers {
     public static void main(String[] args) {
         for (int x = 2; x < 1000000; x++) {

@@ -4,8 +4,8 @@ public class Library {
     public static void main(String[] args) {
         String name = "Bernard Werber";
         String email = "bernard.werber@gmail.com";
-        String title = "Ziua furnicilor";
-        int year = 1996;
+        String title = "ZIUA FURNICILOR";
+        int year = 1991;
         double price = 10;
         Author author = new Author(name, email);
         Book book = new Book(title, year, author, price);

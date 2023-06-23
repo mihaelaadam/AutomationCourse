@@ -1,7 +1,7 @@
 package homework.homework03;
 
 public class Book {
-    private String name;
+    String name;
     int year;
     Author author;
     double price;

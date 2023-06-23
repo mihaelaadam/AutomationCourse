@@ -1,7 +1,7 @@
 package homework.homework03;
 
 public class Author {
-    String name;
+    private String name;
     String email;
     public Author(String name, String email) {
         this.name = name;

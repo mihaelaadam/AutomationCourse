@@ -2,15 +2,14 @@ package homework.homework03;
 
 public class Library {
     public static void main(String[] args) {
-        String name = "Bernard Werber";
-        String email = "bernard.werber@gmail.com";
-        String title = "ZIUA FURNICILOR";
-        int year = 1991;
-        double price = 10;
+        String name = "Aurel Azorel";
+        String email = "aurel.azorel@yahoo.com";
+        int year = 1966;
+        double price = 35.25;
         Author author = new Author(name, email);
-        Book book = new Book(title, year, author, price);
-        System.out.println("Book " + book.getTitle() + ", (" + book.getPrice() + " RON) , by " + author.getName() + ", published in " + book.getYear());
+        Book book = new Book(name, year, author, price);
+        book.setName("THE LEGEND OF THE LEGEND");
+        System.out.println("Book " + book.getName() + ", (" + book.getPrice() + " RON) , by " + author.getName() + ", published in " + book.getYear());
     }
-
 
 }

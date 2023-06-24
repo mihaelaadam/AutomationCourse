@@ -1,4 +1,4 @@
-package course.course03;
+package course.course03_04;
 
 public class Methods {
 

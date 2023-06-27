@@ -9,7 +9,7 @@ public class Library {
         Author author = new Author(name, email);
         Book book = new Book(name, year, author, price);
         book.setName("THE LEGEND OF THE LEGEND");
-        System.out.println("Book " + book.getName() + ", (" + book.getPrice() + " RON) , by " + author.getName() + ", published in " + book.getYear());
+        System.out.println("Book " + book.getName() + ", (" + book.getPrice() + " RON), by " + author.getName() + ", published in " + book.getYear());
     }
 
 }

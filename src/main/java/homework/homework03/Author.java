@@ -13,7 +13,4 @@ public class Author {
         return this.name;
     }
 
-    public String getEmail() {
-        return this.email;
-    }
 }

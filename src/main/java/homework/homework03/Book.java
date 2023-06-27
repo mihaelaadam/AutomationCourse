@@ -19,9 +19,6 @@ public class Book {
     public int getYear() {
         return this.year;
     }
-    public Author getAuthor() {
-        return this.author;
-    }
     public double getPrice() {
         return this.price;
     }

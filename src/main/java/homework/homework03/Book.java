@@ -1,10 +1,10 @@
 package homework.homework03;
 
 public class Book {
-    String name;
-    int year;
+    private String name;
+    private int year;
     Author author;
-    double price;
+    private double price;
     public Book(String name, int year, Author author, double price) {
         setName(name);
         this.year = year;

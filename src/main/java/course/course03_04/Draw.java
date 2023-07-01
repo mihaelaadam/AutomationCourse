@@ -18,8 +18,31 @@ public class Draw {
         System.out.println("--------");
         System.out.println();
         drawShapeCorners(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+        System.out.println();
+        System.out.println("--------");
+        System.out.println();
+        drawFullTriangle(Integer.parseInt(args[1]));
+        System.out.println();
+        System.out.println("--------");
+        System.out.println();
+        drawTriangleOutline(Integer.parseInt(args[1]));
+        System.out.println();
+        System.out.println("--------");
+        System.out.println();
+        drawTriangleCorners(Integer.parseInt(args[1]));
+        System.out.println();
+        System.out.println("--------");
+        System.out.println();
+        drawFullSquare(Integer.parseInt(args[0]));
+        System.out.println();
+        System.out.println("--------");
+        System.out.println();
+        drawEmptySquare(Integer.parseInt(args[0]));
+        System.out.println();
+        System.out.println("--------");
+        System.out.println();
+        drawSquareCorners(Integer.parseInt(args[0]));
     }
-
     // method 1 for drawShapeOutline
 //    private static void drawShapeOutline(int width, int height) {
 //        printShapeName("Empty rectangle");
@@ -37,7 +60,7 @@ public class Draw {
 
     //    method 2 for drawShapeOutline
     private static void drawShapeOutline(int width, int height) {
-        printShapeName("Empty rectangle");
+        printShapeName("Empty rectangle:");
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
                 if (i == 0 || i == (width - 1) || j == 0 || j == (height - 1)) {
@@ -102,10 +125,10 @@ public class Draw {
         System.out.print("**********");
     }
     private static void drawShapeCorners(int width, int height) {
-        printShapeName("Corners of the rectangle");
-        for (int i = 0; i <= width; i++) {
-            for (int j = 0; j <= height; j++) {
-                if ((i == 0 && j == 0) || (i == width && j == height) || (i == 0 && j == height) || (i == width && j == 0)) {
+        printShapeName("Corners of the rectangle:");
+        for (int i = 0; i < (width - 1); i++) {
+            for (int j = 0; j < (height - 1); j++) {
+                if ((i == 0 && j == 0) || (i == (width - 2) && j == (height - 2)) || (i == 0 && j == (height - 2)) || (i == (width - 2) && j == 0)) {
                     System.out.print("*");
                 }
                 System.out.print(" ");
@@ -113,5 +136,81 @@ public class Draw {
             System.out.println();
         }
     }
+    private static void drawFullTriangle(int height) {
+        printShapeName("Triangle:");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+
+    private static void drawTriangleOutline(int height) {
+        printShapeName("Empty triangle:");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i || i == (height - 1)) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    private static void drawTriangleCorners(int height) {
+        printShapeName("Corners of the triangle:");
+        for (int i = 0; i < (height - 1); i++) {
+            for (int j = 0; j <= i; j++) {
+                if ((i == 0 && j == 0) || (i == (height - 2) && j == 0) || (i == (height - 2) && j == (height - 2))) {
+                    System.out.print("*");
+                }
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void drawFullSquare(int width) {
+        printShapeName("Square: ");
+        for (int i = 0; i < width; i++) {
+            printEntireLine(width);
+            System.out.println();
+        }
+    }
+    private static void drawEmptySquare(int width) {
+        printShapeName("Empty square: ");
+        for (int i = 0; i < width; i++) {
+            if (i == 0 || i == (width - 1)) {
+                for (int j = 0; j < width; j++) {
+                    System.out.print("*");
+                }
+            } else {
+                System.out.print("*");
+                for (int j = 0; j < width - 2; j++) {
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    private static void drawSquareCorners(int width) {
+        printShapeName("Corners of the square:");
+        for (int i = 0; i < (width - 1); i++) {
+            for (int j = 0; j < (width - 1); j++) {
+                if ((i == 0 && j == 0) || (i == (width - 2) && j == (width - 2)) || (i == 0 && j == (width - 2)) || (i == (width - 2) && j == 0)) {
+                    System.out.print("*");
+                }
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
 
 }

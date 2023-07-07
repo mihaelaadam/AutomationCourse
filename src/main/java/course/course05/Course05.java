@@ -5,6 +5,10 @@ import course.course03_04.Person;
 import java.util.*;
 
 public class Course05 {
+    String phrase = "Through Java Collections API we have set of classes and interfaces providing collections of" +
+            " objects with more advanced behavior than arrays." +
+            "Java Collections can achieve all the operations that you perform on a data such as searching," +
+            " sorting, insertion, manipulation, and deletion.";
     public static void main(String[] args) {
         Course05 course05 = new Course05();
         Truck truck = new Truck();
@@ -85,7 +89,7 @@ public class Course05 {
         setList.add("Ion");
         setList.add("Vasile");
         setList.add("Ion");
-        HashSet<String> copySet = setList.clone();
+        HashSet<String> copySet = (HashSet<String>) setList.clone();
         System.out.println("CopySet equals with setList? " + copySet.equals(setList));
 
         for (String el : setList) {

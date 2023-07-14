@@ -63,8 +63,8 @@ public class Course05 {
         list.add(new Person("Ion", (byte) 10, "m", "1112345678903"));
         displayList(list);
 
-        List<String> names = new ArrayList<>();  // recomandare pentru a fi folosit
-        names.add("Ion");
+        List<String> names = new ArrayList<>();  // recomandare pentru a fi folosit, are memorie discontinua
+        names.add("Ion");                       // suporta equals
         names.add("Maria");
         names.add("Vasile");
         names.add("Ion");
@@ -83,9 +83,9 @@ public class Course05 {
             System.out.println(p);
     }
 
-    public void workWithSets() {
+    public void workWithSets() {                        // nu accepta duplicate
         System.out.println("Work with SETS");
-        HashSet<String> setList = new HashSet<>(); // specifice
+        HashSet<String> setList = new HashSet<>(); // aceasta e specific
         setList.add("Ion");
         setList.add("Vasile");
         setList.add("Ion");

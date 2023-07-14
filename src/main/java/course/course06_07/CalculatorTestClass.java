@@ -153,4 +153,7 @@ public class CalculatorTestClass {
         Assert.assertEquals(3, result, 0);
     }
 
+
+    // 2 teste pentru fiecare operatie, inclusiv pentru default - adica 12 teste
+
 }

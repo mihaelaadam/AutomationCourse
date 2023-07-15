@@ -22,55 +22,19 @@ public class CalculatorTestClass {
     public static void printTotalSum() {
         System.out.println("Total sum is: " + totalSum);
     }
-
-
-
     @Test()
-    public void testAddition() {
+    public void testAdditionWithZero() {
         System.out.println("Initial result: " + result);
-        result = calculator.compute(100, 25, "+");
+        result = calculator.compute(0, 25, "+");
         System.out.println("Sum after compute: " + result);
-        Assert.assertEquals(125, result, 0);
+        Assert.assertEquals(25, result, 0);
     }
     @Test()
-    public void testAdditionComp() {
+    public void testSubtractionWithZero() {
         System.out.println("Initial result: " + result);
-        result = calculator.compute(10, -25, "+");
-        System.out.println("Sum after compute: " + result);
-        Assert.assertEquals(-15, result, 0);
-    }
-
-
-
-
-
-
-    @Test()
-    public void testSubtraction() {
-        System.out.println("Initial result: " + result);
-        result = calculator.compute(20, 1, "-");
+        result = calculator.compute(0, 20, "-");
         System.out.println("Subtract after compute: " + result);
-        Assert.assertEquals(19, result, 0);
-    }
-    @Test()
-    public void testSubtractionComp() {
-        System.out.println("Initial result: " + result);
-        result = calculator.compute(10, -12, "-");
-        System.out.println("Subtract after compute: " + result);
-        Assert.assertEquals(22, result, 0);
-    }
-
-
-
-
-
-
-    @Test()
-    public void testMultiply() {
-        System.out.println("Initial result: " + result);
-        result = calculator.compute(11, 12, "*");
-        System.out.println("Multiplication after compute: " + result);
-        Assert.assertEquals(132, result, 0);
+        Assert.assertEquals(-20, result, 0);
     }
     @Test()
     public void testMultiplyForZero() {
@@ -79,27 +43,6 @@ public class CalculatorTestClass {
         System.out.println("Multiplication after compute: " + result);
         Assert.assertEquals(0, result, 0);
     }
-    @Test()
-    public void testMultiplyComp() {
-        System.out.println("Initial result: " + result);
-        result = calculator.compute(4, -12, "*");
-        System.out.println("Multiplication after compute: " + result);
-        Assert.assertEquals(-48, result, 0);
-    }
-
-
-
-
-
-
-    @Test()
-    public void testDivide() {
-        System.out.println("Initial result: " + result);
-        result = calculator.compute(33, 3, "/");
-        System.out.println("Division after compute: " + result);
-        Assert.assertEquals(11, result, 0);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testDivideByZeroWithoutFail() {
         System.out.println("Initial result: " + result);
@@ -117,24 +60,76 @@ public class CalculatorTestClass {
         Assert.assertEquals(10, result, 0);
     }
     @Test()
+    public void testSqrtWithZero() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(0, 0, "SQRT");
+        System.out.println("Square Root after compute: " + result);
+        Assert.assertEquals(0, result, 0);
+    }
+//    numere pozitive
+    @Test()
+    public void testAddition() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(100, 25, "+");
+        System.out.println("Sum after compute: " + result);
+        Assert.assertEquals(125, result, 0);
+    }
+    @Test()
+    public void testSubtraction() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(20, 1, "-");
+        System.out.println("Subtract after compute: " + result);
+        Assert.assertEquals(19, result, 0);
+    }
+    @Test()
+    public void testMultiply() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(12, 12, "*");
+        System.out.println("Multiplication after compute: " + result);
+        Assert.assertEquals(144, result, 0);
+    }
+    @Test()
+    public void testDivide() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(33, 3, "/");
+        System.out.println("Division after compute: " + result);
+        Assert.assertEquals(11, result, 0);
+    }
+    @Test()
+    public void testSqrtComp() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(9, 0, "SQRT");
+        System.out.println("Square Root after compute: " + result);
+        Assert.assertEquals(3, result, 0);
+    }
+//    un argument negativ
+    @Test()
+    public void testAdditionComp() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(10, -25, "+");
+        System.out.println("Sum after compute: " + result);
+        Assert.assertEquals(-15, result, 0);
+    }
+    @Test()
+    public void testSubtractionComp() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(10, -12, "-");
+        System.out.println("Subtract after compute: " + result);
+        Assert.assertEquals(22, result, 0);
+    }
+    @Test()
+    public void testMultiplyComp() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(4, -12, "*");
+        System.out.println("Multiplication after compute: " + result);
+        Assert.assertEquals(-48, result, 0);
+    }
+    @Test()
     public void testDivideComp() {
         System.out.println("Initial result: " + result);
         result = calculator.compute(30, -3, "/");
         System.out.println("Division after compute: " + result);
         Assert.assertEquals(-10, result, 0);
-    }
-
-
-
-
-
-
-    @Test()
-    public void testSqrtComp() {
-        System.out.println("Initial result: " + result);
-        result = calculator.compute(9, 1, "SQRT");
-        System.out.println("Square Root after compute: " + result);
-        Assert.assertEquals(3, result, 0);
     }
     @Test(expected = IllegalArgumentException.class)
     public void testNegativeArgWithoutFail() {
@@ -153,7 +148,5 @@ public class CalculatorTestClass {
         Assert.assertEquals(3, result, 0);
     }
 
-
-    // 2 teste pentru fiecare operatie, inclusiv pentru default - adica 12 teste
 
 }

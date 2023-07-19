@@ -2,7 +2,7 @@ package course.course06_07;
 
 public class Calculator {
 
-    double compute(double firstParam, double secondParam, String operator)
+    public double compute(double firstParam, double secondParam, String operator)
             throws IllegalArgumentException {
         double result;
         switch (operator) {

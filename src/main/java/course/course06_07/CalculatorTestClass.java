@@ -22,6 +22,7 @@ public class CalculatorTestClass {
     public static void printTotalSum() {
         System.out.println("Total sum is: " + totalSum);
     }
+//    un argument 0
     @Test()
     public void testAdditionWithZero() {
         System.out.println("Initial result: " + result);
@@ -66,7 +67,7 @@ public class CalculatorTestClass {
         System.out.println("Square Root after compute: " + result);
         Assert.assertEquals(0, result, 0);
     }
-//    numere pozitive
+//    argumente pozitive
     @Test()
     public void testAddition() {
         System.out.println("Initial result: " + result);
@@ -96,7 +97,7 @@ public class CalculatorTestClass {
         Assert.assertEquals(11, result, 0);
     }
     @Test()
-    public void testSqrtComp() {
+    public void testSqrt() {
         System.out.println("Initial result: " + result);
         result = calculator.compute(9, 0, "SQRT");
         System.out.println("Square Root after compute: " + result);
@@ -132,7 +133,7 @@ public class CalculatorTestClass {
         Assert.assertEquals(-10, result, 0);
     }
     @Test(expected = IllegalArgumentException.class)
-    public void testNegativeArgWithoutFail() {
+    public void testSqrtNegativeArgWithoutFail() {
         System.out.println("Initial result: " + result);
         System.out.println("It will not work because the argument is negative");
         result = calculator.compute(-9, 0, "SQRT");
@@ -140,11 +141,40 @@ public class CalculatorTestClass {
         Assert.assertEquals(3, result, 0);
     }
     @Test()
-    public void testNegativeArgWithFail() {
+    public void testSqrtNegativeArgWithFail() {
         System.out.println("Initial result: " + result);
         System.out.println("The square root cannot be extracted because the argument is negative");
         result = calculator.compute(-9,0, "SQRT");
         System.out.println("Square Root after compute: " + result);
+        Assert.assertEquals(3, result, 0);
+    }
+//    ambele argumente negative
+    @Test()
+    public void testAdditionNeg() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(-2, -25, "+");
+        System.out.println("Sum after compute: " + result);
+        Assert.assertEquals(-27, result, 0);
+    }
+    @Test()
+    public void testSubtractionNeg() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(-22, -12, "-");
+        System.out.println("Subtract after compute: " + result);
+        Assert.assertEquals(-10, result, 0);
+    }
+    @Test()
+    public void testMultiplyNeg() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(-3, -12, "*");
+        System.out.println("Multiplication after compute: " + result);
+        Assert.assertEquals(36, result, 0);
+    }
+    @Test()
+    public void testDivideNeg() {
+        System.out.println("Initial result: " + result);
+        result = calculator.compute(-9, -3, "/");
+        System.out.println("Division after compute: " + result);
         Assert.assertEquals(3, result, 0);
     }
 

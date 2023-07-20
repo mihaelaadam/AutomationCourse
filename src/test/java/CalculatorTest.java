@@ -6,9 +6,9 @@ import org.testng.annotations.Test;
 
 public class CalculatorTest {
     Calculator c;
-    @DataProvider(parallel = true)
+    @DataProvider
     public Object[][] calculatorDataProvider() {
-        return new Object[][]{
+        return new Object[][] {
                 {26, 1, 25, "+", 0},
                 {-19, 1, 20, "-", 0},
                 {1, 1, 1, "*", 0},
@@ -18,11 +18,9 @@ public class CalculatorTest {
     }
 
     @Test(dataProvider = "calculatorDataProvider")
-    public void verifyComputeCalculatorTest(double expectedResult, double firstParam, double secondParam,
-                                            String operator, double delta) throws InterruptedException {
-        System.out.println("Compute calculator tests with delta:" + delta + " for next:(" + firstParam + ")" + operator +
-                "(" + secondParam + ")=" + expectedResult);
-        Assert.assertEquals(expectedResult, c.compute(firstParam, secondParam, operator), delta);
+    public void verifyComputeCalculatorTest(double result, double firstParam, double secondParam, String operator, double delta) {
+        System.out.println("Compute calculator tests with delta:" + delta + " for next:(" + firstParam + ")" + operator + "(" + secondParam + ")=" + result);
+        Assert.assertEquals(result, c.compute(firstParam, secondParam, operator), delta);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class, expectedExceptionsMessageRegExp = "Divide by ZERO")

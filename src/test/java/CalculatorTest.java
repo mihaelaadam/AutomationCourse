@@ -16,7 +16,7 @@ public class CalculatorTest {
     }
     @AfterMethod
     public void calculateTotalSum() {
-        if (!results.isEmpty()) {
+        if (results.isEmpty()) {
             double result = results.get(results.size()-1);
             totalSum += result;
         }

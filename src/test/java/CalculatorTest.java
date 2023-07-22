@@ -1,11 +1,16 @@
 
 import course.course06_07.Calculator;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class CalculatorTest {
     Calculator c;
+    @BeforeMethod
+    public void setUp() {
+        c = new Calculator();
+    }
     @DataProvider
     public Object[][] calculatorDataProvider() {
         return new Object[][] {

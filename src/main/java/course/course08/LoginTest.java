@@ -21,8 +21,8 @@ public class LoginTest {
     @DataProvider(name = "LoginDataProvider")
     public Iterator<Object[]> loginDataProvider() {
         Collection<Object[]> dp = new ArrayList<>();
-        dp.add(new String[] {"","","Please enter your username","Please enter your password","Invalid username or password"});
-        dp.add(new String[] {"SomeUser","SomePassword","","","Invalid username or password"});
+        dp.add(new String[] {"", "", "Please enter your username", "Please enter your password", ""});
+        dp.add(new String[] {"SomeUser", "somePassword", "", "", "Invalid username or password!"});
         return dp.iterator();
     }
     @BeforeMethod
@@ -81,7 +81,8 @@ public class LoginTest {
             }else {
                 WebElement generalErrorElement = chromeDriver.findElement(By.cssSelector("small.form-error"));
                 String actualGeneralError = generalErrorElement.getText();
-                Assert.assertEquals("Incorrect login messaje", generalError, actualGeneralError);
+
+                Assert.assertEquals("Incorrect login mesaage", generalError, actualGeneralError);
             }
         }
 

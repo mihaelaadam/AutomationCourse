@@ -88,15 +88,17 @@ public class MyFirstTest {
         usernameElement.sendKeys("zebra");
         System.out.println("Username field content: " + usernameElement.getAttribute("value"));
         Assert.assertEquals("Incorrect username", "zebra", usernameElement.getAttribute("value"));
+        usernameElement.clear();
+        Assert.assertEquals("Username was not deleted", "", usernameElement.getAttribute("value"));
         chromeDriver.quit();
     }
     @Test
-    public void printSideButton() {       //  testcase pentru partea de login
+    public void printSideButton() throws InterruptedException {       //  testcase pentru partea de login
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Tudor\\IdeaProjects\\AutomationCourse\\src\\test\\resources\\drivers\\chromedriver.exe");
         WebDriver chromeDriver = new ChromeDriver();
-//        chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  //  implicitlyWait
+//        chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);  //  implicitlyWait - e acelasi time pentru toate elementele
         chromeDriver.manage().window().maximize();  //  mareste fereastra
-        WebDriverWait wait = new WebDriverWait(chromeDriver, 10);   //  explicit Wait - numai in secunde
+        WebDriverWait wait = new WebDriverWait(chromeDriver, 10);   //  explicit Wait - numai in secunde - asteapta doar acolo unde il folosesc
         chromeDriver.get("http://86.121.249.151:4999/");
         List<WebElement> sidebarButtonsElements =
                 chromeDriver.findElements(By.xpath("//div[@class='sidebar']/a[not(@target)]"));    //  specific tipul de cautare
@@ -108,6 +110,8 @@ public class MyFirstTest {
         WebElement answerElement = chromeDriver.findElement(By.cssSelector("p.answer"));    //  specific tipul de cautare
         System.out.println("Calculating answer elements: " + answerElement.getText());
         WebElement giveAnswerButtonElement = chromeDriver.findElement(By.id("answer-trigger"));
+        WebElement answerBeforeCalculateElement = chromeDriver.findElement(By.cssSelector(".answer"));
+        System.out.println("Is answer displayed: " + answerBeforeCalculateElement.isDisplayed());
         giveAnswerButtonElement.click();
         System.out.println("Calculating answer elements: " + answerElement.getText());
 //        System.out.println("Before thread sleep");
@@ -117,6 +121,25 @@ public class MyFirstTest {
         WebElement responseElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()='42']")));
         System.out.println("Response element text: " + responseElement.getText());
 
+        chromeDriver.quit();
+    }
+    @Test
+    public void isCheckboxSelected() {       //  testcase pentru partea de login
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Tudor\\IdeaProjects\\AutomationCourse\\src\\test\\resources\\drivers\\chromedriver.exe");
+        WebDriver chromeDriver = new ChromeDriver();
+        chromeDriver.get("http://86.121.249.151:4999/");
+        List<WebElement> sidebarButtonsElements =
+                chromeDriver.findElements(By.xpath("//div[@class='sidebar']/a[not(@target)]"));    //  specific tipul de cautare
+        for (WebElement currentButtonElement : sidebarButtonsElements) {
+            System.out.println("Button text: " + currentButtonElement.getText());
+        }
+        WebElement clickInterceptedElement = sidebarButtonsElements.get(3);
+        clickInterceptedElement.click();
+        WebElement checkboxElement = chromeDriver.findElement(By.id("the_checkbox"));   //  checkbox este selectat
+        System.out.println("Checkbox is selected: " + checkboxElement.isSelected());
+        WebElement checkboxTextElement = chromeDriver.findElement(By.cssSelector(".off"));
+        checkboxTextElement.click();
+        Assert.assertTrue("Checkbox is selected", checkboxElement.isSelected());
         chromeDriver.quit();
     }
 

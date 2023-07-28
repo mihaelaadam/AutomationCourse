@@ -1,7 +1,5 @@
 package course.course03_04;
 
-import com.sun.deploy.security.SelectableSecurityManager;
-
 import java.awt.*;
 
 public class Car {

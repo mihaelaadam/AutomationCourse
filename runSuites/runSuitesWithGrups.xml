@@ -8,7 +8,7 @@
             </run>
         </groups>
         <classes>
-            <class name="MyFirstTestNGTest"/>
+            <class name="OldTests.MyFirstTestNGTest"/>
         </classes>
     </test>
 </suite>

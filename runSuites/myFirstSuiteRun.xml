@@ -3,7 +3,7 @@
 <suite name="Test Login-LogOut">
     <test thread-count="5" name="Login-LogOut">
         <classes>
-            <class name="MyFirstTestNGTest">
+            <class name="OldTests.MyFirstTestNGTest">
                 <methods>
                     <include name="login"/>
                     <include name="logout"/>

@@ -1,3 +1,5 @@
+package OldTests;
+
 import course.course06_07.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.*;

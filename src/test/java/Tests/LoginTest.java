@@ -1,26 +1,34 @@
 package Tests;
 
+import PageObjects.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+
 
 public class LoginTest extends BaseTest {
+    LoginPage loginPage;    //  clasa initelement
     @DataProvider (name = "loginDp")
     public Object[][] loginDataProvider() {
         return new Object[][] {
-                {"", "", "chrome"},
-                {"SomeUser", "somePassword", "edge"},
-                {"test", "test", "firefox"}
+                {"", "", "chrome","Please enter your username","Please enter your password"},
+                {"", "somePassword", "edge","Please enter your username",""},
+                {"test", "", "firefox","","Please enter your password"},
+                {"zebra", "zebrapassword", "chrome","",""}
         };
     }
     @Test (dataProvider = "loginDp")
-    public void login(String username, String password, String browser) {
+    public void login(String username, String password, String browser, String usernameErr, String passErr) {
         System.out.println("Login with username: " + username + "/password: " + password + "=> on browser: " + browser);
         setUpDriver(browser);
         driver.get(baseUrl);
-        System.out.println("Open browser");
+        loginPage = new LoginPage(driver);
+        loginPage.goToLoginPage();
+        loginPage.login(username, password);
+
+        System.out.println("Login finished, verify error message");
+        Assert.assertEquals(loginPage.getUsernameErr(),usernameErr);
+        Assert.assertEquals(loginPage.getPassErr(),passErr);
     }
 }

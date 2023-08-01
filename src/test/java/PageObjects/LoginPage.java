@@ -53,10 +53,10 @@ public class LoginPage {
         }
 
     }
-    public void getUsernameErr() {
+    public String getUsernameErr() {
         try {
-            return; usernameErr.getText();
-        }catch (NoSuchElementException ex) {
+            return usernameErr.getText();
+        } catch (NoSuchElementException ex) {
             return "";
         }
 

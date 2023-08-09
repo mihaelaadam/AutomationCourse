@@ -42,20 +42,18 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(loginPage.getUsernameErr(),usernameErr);
         Assert.assertEquals(loginPage.getPassErr(),passErr);
     }
-    @Test (dataProvider = "loginPDp")
-    public void loginPositive(String username, String password, String browser) {
-        System.out.println("Login with username: " + username + "/password: " + password + "=> on browser: " + browser);
+    @Test(dataProvider = "loginDp")
+    public void login(String username, String password, String browser, String usernameErr, String passErr) {
+        System.out.println("Login with username:" + username + "/password:" + password + "=> on browser:" + browser);
         setUpDriver(browser);
         driver.get(baseUrl);
+
         loginPage = new LoginPage(driver);
         loginPage.goToLoginPage();
         loginPage.login(username, password);
 
-        System.out.println("Login finished, verify error message");
-
-        accountPage = new AccountPage(driver);
-        Assert.assertTrue(accountPage.getName().contains(username), "Login succesfull: "+username);
-        System.out.println("Logout user");
-
+        System.out.println("Login Finished, verify error message");
+        Assert.assertEquals(loginPage.getUsernameErr(), usernameErr);
+        Assert.assertEquals(loginPage.getPassErr(), passErr);
     }
 }

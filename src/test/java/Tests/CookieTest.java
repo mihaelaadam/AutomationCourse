@@ -33,7 +33,7 @@ public class CookieTest extends BaseTest {
 //        pageTitleCookie = driver.manage().getCookieNamed("cookiePageTitle");
 //        Assert.assertEquals(cookiePage.getPageTitle(), pageTitleCookie.getValue(),
 //                "Incorrect page title");
-        driver.navigate().refresh();
+        driver.navigate().refresh();    //  apasa pe butonul de refresh din stanga sus a paginii
         cookiePage.clickSetCookieButton();
         Cookie consentCookie = driver.manage().getCookieNamed("gibberish");
         Assert.assertNotNull(consentCookie, "Checking that the cookie is not null");

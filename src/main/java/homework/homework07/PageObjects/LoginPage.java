@@ -13,6 +13,8 @@ public class LoginPage {
     WebDriverWait wait;
     @FindBy(css = "a[href*='cookie']")
     private WebElement cookieButtonElement;
+    @FindBy(css = "a[href*='modal']")
+    private WebElement modalButtonElement;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -25,5 +27,9 @@ public class LoginPage {
         cookieButtonElement.click();
         Cookie cookie = new Cookie("myCookie", "This is my new cookie");
         driver.manage().addCookie(cookie);
+    }
+    public void goToModalPage() {
+        wait.until(ExpectedConditions.visibilityOf(modalButtonElement));
+        modalButtonElement.click();
     }
 }

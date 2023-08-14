@@ -10,7 +10,7 @@ public class ModalTest extends BaseTest {
     LoginPage loginPage;
     ModalPage modalPage;
     @Test
-    public void clickInterceptedExceptionTest() throws ElementClickInterceptedException {
+    public void clickInterceptedExceptionTest() {
         loginPage = new LoginPage(driver);
         loginPage.goToModalPage();
         modalPage = new ModalPage(driver);

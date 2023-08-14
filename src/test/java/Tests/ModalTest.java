@@ -2,6 +2,7 @@ package Tests;
 
 import PageObjects.LoginPage;
 import PageObjects.ModalPage;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,7 @@ public class ModalTest extends BaseTest {
     LoginPage loginPage;
     ModalPage modalPage;
     @Test
-    public void clickInterceptedExceptionTest() {
+    public void clickInterceptedExceptionTest() throws ElementClickInterceptedException {
         loginPage = new LoginPage(driver);
         loginPage.goToModalPage();
         modalPage = new ModalPage(driver);
@@ -17,9 +18,11 @@ public class ModalTest extends BaseTest {
         Assert.assertTrue(modalPage.cancelButtonIsDisplayed());
 //        open modal again when it`s already open
         modalPage.closeModalWithX();
+//        modalPage.openModal();
+//        modalPage.closeModalWithCancel();
+//        modalPage.openModal();
+//        modalPage.closeButtonUsingEscape();
         modalPage.openModal();
-        modalPage.closeModalWithCancel();
-        modalPage.openModal();
-        modalPage.closeButtonUsingEscape();
+        modalPage.closeModalOutside();
     }
 }

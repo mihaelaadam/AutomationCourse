@@ -1,14 +1,13 @@
 package PageObjects;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class ModalPage {
     @FindBy(css = "div.modal-footer > button")
@@ -19,6 +18,8 @@ public class ModalPage {
 
     @FindBy(css = "button.btn-close")
     private WebElement closeXButtonElement;
+    @FindBy (css = "div.modal-content")
+    private WebElement alert;
 
     WebDriver driver;
     WebDriverWait wait;
@@ -38,7 +39,7 @@ public class ModalPage {
 
     public void openModal() {
         int currentRetry = 0;
-        while (currentRetry < 10) {
+        while (currentRetry < 50) {
             try {
 //                openModalButtonElement = driver.findElement(By.cssSelector("div.content button"));
                 openModalButtonElement.click();
@@ -60,4 +61,39 @@ public class ModalPage {
     public void closeButtonUsingEscape() {
         actions.sendKeys(Keys.ESCAPE).build().perform();
     }
+
+    public void closeModalOutside() {
+
+        actions = new Actions(driver);
+        actions.moveToElement(closeXButtonElement, 0, 800).click().build().perform();
+        System.out.println("Click efectuat in afara ferestrei de alerta");
+    }
+
+//
+//        public void closeModalOutside() {
+//            try {
+//                actions = new Actions(driver);
+//                actions.moveToElement(closeXButtonElement, 0, 800).click().build().perform();
+//                System.out.println("Click efectuat in afara ferestrei de alerta");
+//            } catch (ElementClickInterceptedException e) {
+//                System.out.println("Cannot interact with items outside the alert window" + e.getMessage());
+//            }
+//
+//        }
+
+//    public void closeModalOutside() {
+//        try {
+//            wait = new WebDriverWait(driver, 10);
+//            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.content button")));
+//            try {
+//                actions = new Actions(driver);
+//                actions.moveToElement(closeXButtonElement, 300, 500).click().build().perform();
+//                System.out.println("Click efectuat in afara ferestrei de alerta");
+//            } catch (ElementClickInterceptedException e) {
+//                System.out.println("Cannot interact with items outside the alert window" + e.getMessage());
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

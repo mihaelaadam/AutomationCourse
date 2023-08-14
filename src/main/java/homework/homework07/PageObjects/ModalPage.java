@@ -1,5 +1,6 @@
 package homework.homework07.PageObjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,10 +52,16 @@ public class ModalPage {
     public void closeModalWithX() {
         closeXButtonElement.click();
     }
+    public void closeModalWithCancel() {
+        cancelButtonElement.click();
+    }
+    public void closeButtonUsingEscape() {
+        actions.sendKeys(Keys.ESCAPE).build().perform();
+    }
 
     public void closeModalOutside() {
         actions = new Actions(driver);
         actions.moveToElement(closeXButtonElement, 0, 800).click().build().perform();
-        System.out.println("Click efectuat in afara ferestrei de alerta");
+        System.out.println("Click outside of the alert window");
     }
 }

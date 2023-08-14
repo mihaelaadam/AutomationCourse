@@ -18,8 +18,6 @@ public class ModalPage {
 
     @FindBy(css = "button.btn-close")
     private WebElement closeXButtonElement;
-    @FindBy (css = "div.modal-content")
-    private WebElement alert;
 
     WebDriver driver;
     WebDriverWait wait;
@@ -54,46 +52,17 @@ public class ModalPage {
         closeXButtonElement.click();
     }
 
-    public void closeModalWithCancel() {
-        cancelButtonElement.click();
-    }
+//    public void closeModalWithCancel() {
+//        cancelButtonElement.click();
+//    }
 
-    public void closeButtonUsingEscape() {
-        actions.sendKeys(Keys.ESCAPE).build().perform();
-    }
+//    public void closeButtonUsingEscape() {
+//        actions.sendKeys(Keys.ESCAPE).build().perform();
+//    }
 
     public void closeModalOutside() {
-
         actions = new Actions(driver);
         actions.moveToElement(closeXButtonElement, 0, 800).click().build().perform();
         System.out.println("Click efectuat in afara ferestrei de alerta");
     }
-
-//
-//        public void closeModalOutside() {
-//            try {
-//                actions = new Actions(driver);
-//                actions.moveToElement(closeXButtonElement, 0, 800).click().build().perform();
-//                System.out.println("Click efectuat in afara ferestrei de alerta");
-//            } catch (ElementClickInterceptedException e) {
-//                System.out.println("Cannot interact with items outside the alert window" + e.getMessage());
-//            }
-//
-//        }
-
-//    public void closeModalOutside() {
-//        try {
-//            wait = new WebDriverWait(driver, 10);
-//            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("div.content button")));
-//            try {
-//                actions = new Actions(driver);
-//                actions.moveToElement(closeXButtonElement, 300, 500).click().build().perform();
-//                System.out.println("Click efectuat in afara ferestrei de alerta");
-//            } catch (ElementClickInterceptedException e) {
-//                System.out.println("Cannot interact with items outside the alert window" + e.getMessage());
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

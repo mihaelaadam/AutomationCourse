@@ -1,6 +1,6 @@
-package homework.homework07.Tests;
+package homework.homework09.Tests;
 
-import homework.homework07.PageObjects.LoginPage;
+import homework.homework09.PageObjects.LoginPage;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.Test;

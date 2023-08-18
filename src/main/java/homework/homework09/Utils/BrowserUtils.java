@@ -1,4 +1,4 @@
-package homework.homework07.Utils;
+package homework.homework09.Utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

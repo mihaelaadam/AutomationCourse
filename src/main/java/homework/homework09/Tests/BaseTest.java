@@ -1,8 +1,8 @@
-package homework.homework07.Tests;
+package homework.homework09.Tests;
 
-import homework.homework07.Utils.BrowserUtils;
-import homework.homework07.Utils.ConfigUtils;
-import homework.homework07.Utils.ConstantUtils;
+import homework.homework09.Utils.BrowserUtils;
+import homework.homework09.Utils.ConfigUtils;
+import homework.homework09.Utils.ConstantUtils;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;

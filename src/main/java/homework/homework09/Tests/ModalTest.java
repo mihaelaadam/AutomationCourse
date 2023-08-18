@@ -1,8 +1,7 @@
-package homework.homework07.Tests;
+package homework.homework09.Tests;
 
-import homework.homework07.PageObjects.LoginPage;
-import homework.homework07.PageObjects.ModalPage;
-import org.openqa.selenium.ElementClickInterceptedException;
+import homework.homework09.PageObjects.LoginPage;
+import homework.homework09.PageObjects.ModalPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

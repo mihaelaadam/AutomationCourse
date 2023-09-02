@@ -8,7 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
+import java.time.Duration;
+
+public class MainPage {
     WebDriver driver;
     WebDriverWait wait;
     @FindBy(css = "a[href*='cookie']")
@@ -16,9 +18,9 @@ public class LoginPage {
     @FindBy(css = "a[href*='modal']")
     private WebElement modalButtonElement;
 
-    public LoginPage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
     }
 

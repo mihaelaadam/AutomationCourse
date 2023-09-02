@@ -7,7 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPosPage {
+import java.time.Duration;
+
+public class RegistrationPosPage {
     WebDriver driver;
     WebDriverWait wait;
 
@@ -16,9 +18,9 @@ public class LoginPosPage {
     @FindBy(css = "input#terms+label")
     private WebElement confTerms;
 
-    public LoginPosPage(WebDriver driver) {
+    public RegistrationPosPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
     public void selectTerms() {

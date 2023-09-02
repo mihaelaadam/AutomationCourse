@@ -10,12 +10,14 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginNegPage {
+import java.time.Duration;
+
+public class RegistrationNegPage {
     WebDriver driver;
     WebDriverWait wait;
     Actions actions;
     @FindBy(xpath = "//div[@class='col']/a")
-    private WebElement loginPagebtn;
+    private WebElement registerPagebtn;
     @FindBy(id = "username")
     private WebElement usernameInput;
     @FindBy(id = "password")
@@ -24,7 +26,7 @@ public class LoginNegPage {
     private WebElement confpasswordInput;
 
     @FindBy(tagName = "button")
-    private WebElement loginBtn;
+    private WebElement registerBtn;
 
 
     @FindBy(xpath = "//small[contains(text(),'username')]")
@@ -38,25 +40,25 @@ public class LoginNegPage {
     @FindBy(xpath = "//small[contains(text(),'already')]")
     private WebElement passExistErr;
 
-    public LoginNegPage(WebDriver driver) {
+    public RegistrationNegPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
         actions = new Actions(driver);
     }
     public void waitTermErr() {
         wait.until(ExpectedConditions.visibilityOf(termErr));
     }
-    public void goToLoginPage() {
-        wait.until(ExpectedConditions.visibilityOf(loginPagebtn));
-        loginPagebtn.click();
+    public void goToRegistrationPage() {
+        wait.until(ExpectedConditions.visibilityOf(registerPagebtn));
+        registerPagebtn.click();
     }
     public void clickSubmitButton() {
-        wait.until(ExpectedConditions.visibilityOf(loginBtn));
-        loginBtn.click();
+        wait.until(ExpectedConditions.visibilityOf(registerBtn));
+        registerBtn.click();
     }
 
-    public void login(String username, String pass, String confPass) {
+    public void registration(String username, String pass, String confPass) {
         wait.until(ExpectedConditions.elementToBeClickable(usernameInput));
         usernameInput.clear();
         usernameInput.sendKeys(username);
@@ -67,8 +69,8 @@ public class LoginNegPage {
     }
 
     public void goToSubmitButton() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", loginBtn);
-          wait.until(ExpectedConditions.elementToBeClickable(loginBtn));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", registerBtn);
+          wait.until(ExpectedConditions.elementToBeClickable(registerBtn));
     }
 
 

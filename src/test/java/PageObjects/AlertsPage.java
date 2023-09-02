@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class AlertsPage {
     WebDriver driver;
     WebDriverWait wait;
@@ -22,7 +24,7 @@ public class AlertsPage {
 
     public AlertsPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         PageFactory.initElements(driver, this);
     }
 

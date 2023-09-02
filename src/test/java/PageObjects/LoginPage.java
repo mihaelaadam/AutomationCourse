@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 //    surpinde actiuni si elemente  //  nu e un test cu asserturi
 public class LoginPage {
     WebDriver driver;
@@ -43,7 +45,7 @@ public class LoginPage {
 
     public LoginPage(WebDriver driver) {    //  constructor la driver ca sa instantiem page login - recomandat
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         PageFactory.initElements(driver, this);
     }
     public void goToLoginPage() {

@@ -1,6 +1,6 @@
 package homework.homework09.Tests;
 
-import homework.homework09.PageObjects.LoginPage;
+import homework.homework09.PageObjects.MainPage;
 import org.openqa.selenium.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 import java.util.Set;
 
 public class CookieTest extends BaseTest {
-    LoginPage loginPage;
+    MainPage mainPage;
 
     @Test
     public void printCookie() {
-        loginPage = new LoginPage(driver);
-        loginPage.goToCookiePage();
+        mainPage = new MainPage(driver);
+        mainPage.goToCookiePage();
 
         Cookie cookieNewName = driver.manage().getCookieNamed("myCookie");
         driver.navigate().refresh();

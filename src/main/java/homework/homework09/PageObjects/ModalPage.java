@@ -10,13 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ModalPage {
-    @FindBy(css = "div.modal-footer > button")
-    private WebElement cancelButtonElement;
+import java.time.Duration;
 
+public class ModalPage {
     @FindBy(css = "div.content button")
     private WebElement openModalButtonElement;
-
+    @FindBy(css = "div.modal-footer > button")
+    private WebElement cancelButtonElement;
     @FindBy(css = "button.btn-close")
     private WebElement closeXButtonElement;
 
@@ -27,28 +27,26 @@ public class ModalPage {
 
     public ModalPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
         actions = new Actions(driver);
-    }
-
-    public boolean cancelButtonIsDisplayed() {
-        wait.until(ExpectedConditions.visibilityOf(cancelButtonElement));
-        return cancelButtonElement.isDisplayed();
     }
 
     public void openModal() {
         int currentRetry = 0;
         while (currentRetry < 50) {
             try {
-                openModalButtonElement.click();
+        actions.moveToElement(openModalButtonElement).click().perform();
                 break;
             } catch (StaleElementReferenceException e) {
                 currentRetry++;
             }
         }
     }
-
+    public boolean cancelButtonIsDisplayed() {
+        wait.until(ExpectedConditions.visibilityOf(cancelButtonElement));
+        return cancelButtonElement.isDisplayed();
+    }
     public void closeModalWithX() {
         closeXButtonElement.click();
     }

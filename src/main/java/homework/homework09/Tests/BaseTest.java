@@ -15,7 +15,7 @@ public class BaseTest {
     public void setUp() {
         baseUrl = ConfigUtils.getGenericElement(ConstantUtils.CONFIG_FILE, "hostname");
     }
-    public void setUpDriver(String browserName) {   //  daca browser nameul este empty sa se duca sa ia din config
+    public void setUpDriver(String browserName) {
         String browser = browserName;
         if(browser.isEmpty()) {
             browser = ConfigUtils.getGenericElement(ConstantUtils.CONFIG_FILE, "browser");
@@ -24,11 +24,10 @@ public class BaseTest {
         driver = BrowserUtils.getBrowser(browser);
     }
     @BeforeMethod
-    public void setup() {
-        String browserName = ConfigUtils.getGenericElement(ConstantUtils.CONFIG_FILE, "browser");
+    public void startBrowser() {
+        String browserName = homework.homework08.Utils.ConfigUtils.getGenericElement(homework.homework08.Utils.ConstantUtils.CONFIG_FILE, "browser");
         setUpDriver(browserName);
         driver.get(baseUrl);
-
     }
     @AfterMethod
     public void cleanUp() {

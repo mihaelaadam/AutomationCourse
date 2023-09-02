@@ -1,0 +1,8 @@
+<loginModel>    //  numele clasei folosita pentru aceasta mapare
+    <account>
+        <username/>
+        <password>pass1</password>
+    </account>
+    <userError>Please enter your username</userError>
+    <passwordError/>
+</loginModel>

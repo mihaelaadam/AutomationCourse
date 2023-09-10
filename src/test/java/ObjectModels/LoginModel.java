@@ -8,6 +8,8 @@ public class LoginModel {
     private AccountModel account;
     private String userError;
     private String passwordError;
+    public LoginModel() {
+    }
 
     public LoginModel(String username, String password, String userError, String passwordError) { //  pentru CSV. Se dezactiveaza pentru JSON si XML
         AccountModel accountM = new AccountModel();

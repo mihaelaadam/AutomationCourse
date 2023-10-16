@@ -2,6 +2,7 @@ package Tests;
 
 import PageObjects.HoverPage;
 import PageObjects.LoginPage;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public class ActionsTest extends BaseTest {
     LoginPage loginPage;
     HoverPage hoverPage;
+
     @Test
     public void hoverTest() {
         loginPage = new LoginPage(driver);
@@ -41,5 +43,4 @@ public class ActionsTest extends BaseTest {
                 hoverPage.getSelectedDropDownOption(),
                 "Incorrect drop down option selected");
     }
-
 }

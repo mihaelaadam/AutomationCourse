@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 public class RegistrationTest extends BaseTest {
     LoginPage loginPage;
     RegistrationPage registrationPage;
+
     @Test
     public void registerTest() throws MyCustomException {
         loginPage = new LoginPage(driver);
@@ -16,5 +17,4 @@ public class RegistrationTest extends BaseTest {
 //        registrationPage.clickTermsCheckboxUsingActionsScroll();
         registrationPage.clickTermsCheckboxUsingJsScroll();
     }
-
 }

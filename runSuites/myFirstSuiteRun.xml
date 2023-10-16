@@ -9,7 +9,7 @@
                     <include name="logout"/>
                     <include name="closeBrowser"/>
                 </methods>
-            </class> <!-- MyFistTestNGTest -->
+            </class> <!-- OldTests.MyFistTestNGTest -->
         </classes>
     </test>
 </suite>

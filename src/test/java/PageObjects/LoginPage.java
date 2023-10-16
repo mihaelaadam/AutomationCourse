@@ -14,23 +14,31 @@ import java.time.Duration;
 
 //    surpinde actiuni si elemente  //  nu e un test cu asserturi
 public class LoginPage {
+
     WebDriver driver;
-    WebDriverWait wait; //  folosit in mod curent
+    WebDriverWait wait;
+
     @FindBy(tagName = "h2")
     private WebElement loginPagebtn;
+
     @FindBy(id = "user")
     private WebElement usernameInput;
-    @FindBy(how = How.ID, using = "pass")   //  forma de baza
+
+    @FindBy(how = How.ID, using = "pass")
     private WebElement passwordInput;
     @FindBy(tagName = "button")
     private WebElement loginBtn;
     private WebElement rememberMe;
+
     @FindBy(xpath = "//input[@id='user']/../..//small")
     private WebElement usernameErr;
+
     @FindBy(xpath = "//input[@id='pass']/../..//small")
     private WebElement passErr;
+
     @FindBy(css = "a[href*='cookie']")
     private WebElement cookieButtonElement;
+
     @FindBy(css = "a[href*='alerts']")
     private WebElement alertsButtonElement;
 
@@ -43,16 +51,17 @@ public class LoginPage {
     @FindBy(css = "a[href*='signup']")
     private WebElement signUpButtonElement;
 
-    public LoginPage(WebDriver driver) {    //  constructor la driver ca sa instantiem page login - recomandat
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
     }
+
     public void goToLoginPage() {
         wait.until(ExpectedConditions.visibilityOf(loginPagebtn));
         loginPagebtn.click();
     }
-//      avem mai multe elemente de defint, cum ar o metoda de login
+
     public void login(String username, String pass) {
         wait.until(ExpectedConditions.elementToBeClickable(usernameInput));
         usernameInput.clear();
@@ -61,23 +70,22 @@ public class LoginPage {
         passwordInput.sendKeys(pass);
         loginBtn.click();
     }
+
     public String getPassErr() {
         try {
             return passErr.getText();
         } catch (NoSuchElementException ex) {
-            return "";  //  mesajul este empty
+            return "";
         }
-
     }
-    public String getUsernameErr() {
+
+    public String geUsernameErr() {
         try {
             return usernameErr.getText();
         } catch (NoSuchElementException ex) {
             return "";
         }
-
     }
-
 
     public void goToCookiePage() {
         wait.until(ExpectedConditions.visibilityOf(cookieButtonElement));

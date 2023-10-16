@@ -10,8 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CookiePage {
+
     @FindBy(id = "set-cookie")
     private WebElement setCookieButtonElement;
+
     @FindBy(id = "cookie-value")
     private WebElement cookieValueElement;
 
@@ -20,20 +22,21 @@ public class CookiePage {
 
     @FindBy(tagName = "h1")
     private WebElement pageTitleElement;
+
     WebDriver driver;
     WebDriverWait wait;
-    public CookiePage(WebDriver driver) {    //  constructor la driver ca sa instantiem page login - recomandat
+
+    public CookiePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
-
-
     }
 
     public boolean setCookieButtonIsDisplayed() {
         wait.until(ExpectedConditions.visibilityOf(setCookieButtonElement));
         return setCookieButtonElement.isDisplayed();
     }
+
     public void clickSetCookieButton() {
         setCookieButtonElement.click();
     }

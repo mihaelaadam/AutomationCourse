@@ -2,13 +2,15 @@ package Tests;
 
 import PageObjects.AlertsPage;
 import PageObjects.LoginPage;
-import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.Alert;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class AlertsTest extends BaseTest {
     LoginPage loginPage;
     AlertsPage alertsPage;
+
+
     @Test
     public void openAlert() {
         loginPage = new LoginPage(driver);

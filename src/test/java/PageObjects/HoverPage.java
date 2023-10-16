@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HoverPage {
+
     WebDriver driver;
     WebDriverWait wait;
     Actions actions;
@@ -28,7 +29,7 @@ public class HoverPage {
 
     public HoverPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
         actions = new Actions(driver);
     }

@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.lang.reflect.InvocationTargetException;
 import java.time.Duration;
 
 public class ModalPage {
+
     @FindBy(css = "div.modal-footer > button")
     private WebElement cancelButtonElement;
 
@@ -26,7 +26,7 @@ public class ModalPage {
 
     public ModalPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
         actions = new Actions(driver);
     }
@@ -38,7 +38,7 @@ public class ModalPage {
 
     public void openModal() {
         int currentRetry = 0;
-        while (currentRetry < 50) {
+        while (currentRetry < 10) {
             try {
 //                openModalButtonElement = driver.findElement(By.cssSelector("div.content button"));
                 openModalButtonElement.click();
@@ -53,13 +53,13 @@ public class ModalPage {
         closeXButtonElement.click();
     }
 
-//    public void closeModalWithCancel() {
-//        cancelButtonElement.click();
-//    }
+    public void closeModalWithCancel() {
+        cancelButtonElement.click();
+    }
 
-//    public void closeButtonUsingEscape() {
-//        actions.sendKeys(Keys.ESCAPE).build().perform();
-//    }
+    public void closeButtonUsingEscape() {
+        actions.sendKeys(Keys.ESCAPE).build().perform();
+    }
 
     public void closeModalOutside() {
         actions = new Actions(driver);

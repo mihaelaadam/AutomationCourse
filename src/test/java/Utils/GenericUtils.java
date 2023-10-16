@@ -6,6 +6,9 @@ public class GenericUtils {     //  api
     }
 
     public static String getBaseUrl(String apiConfig, String protocolPropertyName, String baseUrlPropertyName) {
-        return ConfigUtils.getGenericElement(apiConfig, protocolPropertyName) + "://" + ConfigUtils.getGenericElement(apiConfig, baseUrlPropertyName);
+        return ConfigUtils.getGenericElement(apiConfig,
+                protocolPropertyName) + "://" +
+                ConfigUtils.getGenericElement(apiConfig,
+                        baseUrlPropertyName);
     }
 }

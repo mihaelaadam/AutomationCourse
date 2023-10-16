@@ -76,16 +76,16 @@ public class LoginDataSourceTests extends BaseTest {
     }
 
     //#####################################CSV#######################
-    @DataProvider(name = "csvDp")   //  4
+    @DataProvider(name = "csvDp")
     public Iterator<Object[]> csvDpCollection() throws IOException, CsvException {
         Collection<Object[]> dp = new ArrayList<>();
         File file = new File("src\\test\\resources\\Data\\testdata.csv");
         Reader reader = Files.newBufferedReader(Paths.get(file.getAbsolutePath())); //  construim readerul (construim pathul din file.getAbsolutePath)
         CSVReader csvReader = new CSVReader(reader);
-        List<String[]> csvData = csvReader.readAll();   //  intoarce list de string
+        List<String[]> csvData = csvReader.readAll();
         int usernamePoz = 0, passwordPoz = 1, userERRPoz = 2, passwordErr = 3;
 
-        for(int i = 0; i < csvData.size(); i++) {
+        for (int i = 0; i < csvData.size(); i++) {
             LoginModel lm = new LoginModel(csvData.get(i)[usernamePoz], csvData.get(i)[passwordPoz], csvData.get(i)[userERRPoz], csvData.get(i)[passwordErr]);
             dp.add(new Object[]{lm});
         }
@@ -94,19 +94,19 @@ public class LoginDataSourceTests extends BaseTest {
     }
 
     @Test(dataProvider = "csvDp")
-        public void loginWithCSVAsDataSource(LoginModel lm) {   //  3
+    public void loginWithCSVAsDataSource(LoginModel lm) {
         loginLm(lm);
     }
 
-//    //#####################################XLSX#######################
+    //#####################################XLSX#######################
     @DataProvider(name = "xlsx")
     public Iterator<Object[]> xlsxDpCollection() throws Exception {
         Collection<Object[]> dp = new ArrayList<>();
         File file = new File("src\\test\\resources\\Data\\testdata.xlsx");
         int usernamePoz = 0, passwordPoz = 1, userERRPoz = 2, passwordErr = 3;
-        String[][] excelData = ExcelReader.readExcelFile(file,"",true,true);
+        String[][] excelData = ExcelReader.readExcelFile(file, "", true, true);
 
-        for(int i = 0; i < excelData.length; i++) {
+        for (int i = 0; i < excelData.length; i++) {
             LoginModel lm = new LoginModel(excelData[i][usernamePoz], excelData[i][passwordPoz], excelData[i][userERRPoz],
                     excelData[i][passwordErr]);
             dp.add(new Object[]{lm});
@@ -124,21 +124,21 @@ public class LoginDataSourceTests extends BaseTest {
     @DataProvider(name = "mysql")
     public Iterator<Object[]> mysqlDpCollection() throws Exception {
 //        show DB connection details
-        System.out.println("Use dbHostname:"+dbHostname);
-        System.out.println("Use dbUser:"+dbUser);
-        System.out.println("Use dbPort:"+dbPort);
-        System.out.println("Use dbSchema:"+dbSchema);
+        System.out.println("Use dbHostname:" + dbHostname);
+        System.out.println("Use dbUser:" + dbUser);
+        System.out.println("Use dbPort:" + dbPort);
+        System.out.println("Use dbSchema:" + dbSchema);
         Collection<Object[]> dp = new ArrayList<>();
 //        db connection
-        Connection connection = DriverManager.getConnection("jdbc:mysql://"+dbHostname+":"+dbPort+  //  jdbc - se pune by default
-                "/"+dbSchema, dbUser,dbPassword);
+        Connection connection = DriverManager.getConnection("jdbc:mysql://" + dbHostname + ":" + dbPort +
+                "/" + dbSchema, dbUser, dbPassword);
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM login_negative");
-        while (resultSet.next()){
-            LoginModel lm = new LoginModel(getEscapedElement(resultSet,"username"),
-                    getEscapedElement(resultSet,"password"),
-                    getEscapedElement(resultSet,"usernameErr"),
-                    getEscapedElement(resultSet,"passwordErr"));
+        while (resultSet.next()) {
+            LoginModel lm = new LoginModel(getEscapedElement(resultSet, "username"),
+                    getEscapedElement(resultSet, "password"),
+                    getEscapedElement(resultSet, "usernameErr"),
+                    getEscapedElement(resultSet, "passwordErr"));
             dp.add(new Object[]{lm});
         }
         return dp.iterator();
@@ -148,22 +148,23 @@ public class LoginDataSourceTests extends BaseTest {
     public void loginWithSQLAsDataSource(LoginModel lm) {
         loginLm(lm);
     }
+
     //   login with loginModel
-    private void loginLm(LoginModel lm) {   //  2
+    private void loginLm(LoginModel lm) {
         System.out.println(lm);
         login(lm.getAccount().getUsername(), lm.getAccount().getPassword(), lm.getUserError(), lm.getPasswordError());
     }
 
-        private void login(String username, String password, String usernameErr, String passErr) {  //  1
-            System.out.println("Login with username:" + username + "/password:" + password + "=> on browser:" + browser);
-            driver.get(baseUrl);
+    private void login(String username, String password, String usernameErr, String passErr) {
+        System.out.println("Login with username:" + username + "/password:" + password + "=> on browser:" + browser);
+        driver.get(baseUrl);
 
         loginPage = new LoginPage(driver);
         loginPage.goToLoginPage();
         loginPage.login(username, password);
 
         System.out.println("Login Finished, verify error message");
-        Assert.assertEquals(loginPage.getUsernameErr(), usernameErr);
+        Assert.assertEquals(loginPage.geUsernameErr(), usernameErr);
         Assert.assertEquals(loginPage.getPassErr(), passErr);
     }
 

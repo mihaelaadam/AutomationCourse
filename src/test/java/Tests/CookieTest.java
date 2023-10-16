@@ -20,11 +20,11 @@ public class CookieTest extends BaseTest {
     @Test
     public void printCookie() {
         loginPage = new LoginPage(driver);
+//        cookiePage = loginPage.goToCookiePage();
         loginPage.goToCookiePage();
         cookiePage = new CookiePage(driver);
-//        cookiePage = loginPage.goToCookiePage();
-        Assert.assertTrue(cookiePage.setCookieButtonIsDisplayed(), "Cookie button is not displayed");
-
+        Assert.assertTrue(cookiePage.setCookieButtonIsDisplayed(),
+                "Cookie button is not displayed");
         Cookie pageTitleCookie = driver.manage().getCookieNamed("cookiePageTitle");
         Assert.assertEquals(cookiePage.getPageTitle(), pageTitleCookie.getValue(),
                 "Incorrect page title");
@@ -33,7 +33,7 @@ public class CookieTest extends BaseTest {
 //        pageTitleCookie = driver.manage().getCookieNamed("cookiePageTitle");
 //        Assert.assertEquals(cookiePage.getPageTitle(), pageTitleCookie.getValue(),
 //                "Incorrect page title");
-        driver.navigate().refresh();    //  apasa pe butonul de refresh din stanga sus a paginii
+        driver.navigate().refresh();
         cookiePage.clickSetCookieButton();
         Cookie consentCookie = driver.manage().getCookieNamed("gibberish");
         Assert.assertNotNull(consentCookie, "Checking that the cookie is not null");
